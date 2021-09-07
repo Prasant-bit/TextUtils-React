@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -26,7 +26,7 @@ function App() {
       setMode("dark");
       document.body.style.background = "#5f5151";
       showAlert("Dark Mode has been enabled", "success");
-      document.title = "TextUtils - DarkMode";
+      // document.title = "TextUtils - DarkMode";
       // setInterval(() => {
       //   document.title = "Install TextUtils Now";
       // }, 2000);
@@ -37,33 +37,32 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light Mode has been enabled", "success");
-      document.title = "TextUtils - LightMode";
+      // document.title = "TextUtils - LightMode";
     }
   };
 
   return (
     <>
-      {/* <Router> */}
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      {/* <Switch>
-          <Route exact path="/"> */}
-      <TextForm
-        heading="Enter the text to analyze below"
-        mode={mode}
-        showAlert={showAlert}
-      />
-      {/* </Route>
-          <Route exact path="/about"> */}
-      <About />
-      {/* </Route>
-        </Switch> */}
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
+      <Router>
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <Switch>
+          <Route exact path="/">
+            <TextForm
+              heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces"
+              mode={mode}
+              showAlert={showAlert}
+            />
+          </Route>
+          <Route exact path="/about">
+            <About mode={mode} />
+          </Route>
+        </Switch>
+        {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
 
-      {/* //   <div className="container my-3"> */}
-      {/* //     {/* <TextArea heading="Enter you text" /> */}
-
-      {/* // </Router> */}
+        {/* //   <div className="container my-3"> */}
+        {/* //     {/* <TextArea heading="Enter you text" /> */}
+      </Router>
     </>
   );
 }

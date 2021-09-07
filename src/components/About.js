@@ -1,31 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-  const handleEnable = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "2px solid aqua",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Dark Mode");
-    }
+export default function About(props) {
+  // const handleEnable = () => {
+  //   if (myStyle.color === "black") {
+  //     setMyStyle({
+  //       color: "white",
+  //       backgroundColor: "black",
+  //       border: "2px solid aqua",
+  //     });
+  //     setBtnText("Enable Light Mode");
+  //   } else {
+  //     setMyStyle({
+  //       color: "black",
+  //       backgroundColor: "white",
+  //     });
+  //     setBtnText("Enable Dark Mode");
+  //   }
+  // };
+
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+  // const [btnText, setBtnText] = useState("Enable Dark Mode");
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "black",
+    backgroundColor: props.mode === "dark" ? "gray" : "white",
   };
-
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
   return (
     <>
       <div className="container my-4">
+        {/* <div className="card" style={myStyle}> */}
         <div className="card" style={myStyle}>
           <h1 className="card-header">About Us</h1>
           <div className="card-body">
@@ -45,11 +50,11 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="container my-4">
+      {/* <div className="container my-4">
         <button className="btn btn-primary" onClick={handleEnable}>
           {btnText}
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
     </>
   );
 }
