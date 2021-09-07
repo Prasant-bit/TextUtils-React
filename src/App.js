@@ -41,24 +41,10 @@ function App() {
     }
   };
 
-  const blueMode = () => {
-    if (mode === "light") {
-      setMode("primary");
-      document.body.style.backgroundColor = "lightblue";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-    }
-  };
   return (
     <>
       {/* <Router> */}
-      <Navbar
-        title="TextUtils"
-        mode={mode}
-        toggleMode={toggleMode}
-        blueMode={blueMode}
-      />
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       {/* <Switch>
           <Route exact path="/"> */}

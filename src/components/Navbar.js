@@ -56,24 +56,6 @@ export default function Navbar(props) {
                 Search
               </button>
             </form> */}
-            <div
-              className={`form-check form-switch text-${
-                props.mode === "light" ? "lightblue" : "light"
-              }`}
-            >
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="flexSwitchCheckDefault"
-                onClick={props.blueMode}
-              />
-              <label
-                className="form-check-label"
-                htmlFor="flexSwitchCheckDefault"
-              >
-                Enable Blue Mode
-              </label>
-            </div>
 
             <div
               className={`form-check form-switch text-${
